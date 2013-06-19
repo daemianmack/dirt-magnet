@@ -12,6 +12,18 @@ tries not to enforce any data constraints apart from a simple schema.
 This is a [Pedestal service](http://pedestal.io) targeting Heroku using Postgres for persistence
 and Enlive for templating.
 
+You can see a demo at
+[clojure-links.herokuapp.com](http://clojure-links.herokuapp.com).
+
+Test out the POSTing and SSE action with...
+
+```
+curl -i -X POST --data \
+"url=http://zombo.com&source=zombo&password=clojure" \
+http://clojure-links.herokuapp.com/links \
+-H "Content-Type: application/x-www-form-urlencoded"
+```
+
 
 # Setup
 
