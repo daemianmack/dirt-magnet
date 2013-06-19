@@ -1,21 +1,15 @@
 # What's this?
 
 An app that accepts POSTs of interesting URLs, fetches their titles if
-possible, and displays them with attribution in a realtime stream using Server Sent Events.
-
-There is a small read/write API.
-
-The primordial use case for this app was to accept POSTs from a bot
-capturing URLs out of IRC, but it will accept any well-formed POST and
-tries not to enforce any data constraints apart from a simple schema.
+possible, and displays them with attribution in a realtime stream
+using Server Sent Events. There is a small read/write API.
 
 This is a [Pedestal service](http://pedestal.io) targeting Heroku using Postgres for persistence
 and Enlive for templating.
 
 You can see a demo at
-[clojure-links.herokuapp.com](http://clojure-links.herokuapp.com).
-
-Test out the POSTing and SSE action with...
+[clojure-links.herokuapp.com](http://clojure-links.herokuapp.com) and
+can test out the POSTing and SSE action with...
 
 ```
 curl -i -X POST --data \
@@ -23,6 +17,10 @@ curl -i -X POST --data \
 http://clojure-links.herokuapp.com/links \
 -H "Content-Type: application/x-www-form-urlencoded"
 ```
+
+The primordial use case for this app was to accept POSTs from an IRC bot
+capturing URLs out of IRC channels, but it will accept any well-formed POST and
+tries not to enforce any data constraints apart from a simple schema.
 
 
 # Setup
