@@ -28,4 +28,4 @@
   :profiles {:dev {:source-paths ["dev"]}}
   :min-lein-version "2.0.0"
   :resource-paths ["config" "resources"]
-  :main ^{:skip-aot true} user)
+  :main ^{:skip-aot true} dev)
