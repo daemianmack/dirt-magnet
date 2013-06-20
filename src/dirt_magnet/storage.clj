@@ -13,7 +13,7 @@
   Optionally takes an argument which is a string of Heroku DATABASE_URL
   format. If no argument is given, uses the one from the environment."
   [& [db-url]]
-  (when-let [database-url (or db-url (System/getenv "DATABASE_URL"))]
+  (if-let [database-url (or db-url (System/getenv "DATABASE_URL"))]
     (let [dburi (URI. database-url)
           userinfo (.getUserInfo dburi)
           [username password] (if userinfo
@@ -28,7 +28,10 @@
        :password password
        :subname (if (= -1 port)
                   (str "//" host path)
-                  (str "//" host ":" port path))})))
+                  (str "//" host ":" port path))})
+    (let [msg "No DATABASE_URL is present, cannot create connection."]
+      (log/error :msg msg)
+      (throw (Exception. msg)))))
 
 (def ^:dynamic *db-conn* nil)
 (def ^:dynamic *db-cache* (atom nil))
