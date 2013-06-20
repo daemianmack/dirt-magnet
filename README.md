@@ -22,6 +22,7 @@ The primordial use case for this app was to accept POSTs from an IRC bot
 capturing URLs out of IRC channels, but it will accept any well-formed POST and
 tries not to enforce any data constraints apart from a simple schema.
 
+[![Build Status](https://travis-ci.org/daemianmack/dirt-magnet.png?branch=master)](https://travis-ci.org/daemianmack/dirt-magnet)
 
 # Setup
 
