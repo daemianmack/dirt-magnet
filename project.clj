@@ -26,6 +26,8 @@
                  [clj-http "0.7.2"]
                  [bond "0.2.5"]]
   :profiles {:dev {:source-paths ["dev"]}}
+  :test-selectors {:default (constantly true)
+                   :nodb (complement :database)}
   :min-lein-version "2.0.0"
   :resource-paths ["config" "resources"]
   :main ^{:skip-aot true} dev)

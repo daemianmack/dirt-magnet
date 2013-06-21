@@ -10,6 +10,6 @@
     ;; If that ever changes, this test should be updated.
     (is (= (:subname db-map) "//localhost:5432/magnet"))))
 
-(deftest test-with-database
+(deftest ^:database test-with-database
   (with-database
     (is (j/query *db-conn* ["SELECT 1=1"]))))
