@@ -7,15 +7,16 @@
             (clj-time [coerce :as c]
                       [format :as f]
                       [local :refer [local-now]])
-            [dirt-magnet.storage :as s]))
+            [dirt-magnet.storage :refer [*db-conn* with-database]]))
 
 
 (defn correct-sequence []
-  (let [[{:keys [max]}] (j/query (s/with-conn) ["select max(id) from links"])]
-    (j/query (s/with-conn) [(str "select setval('links_id_seq', " max ")")])))
+  (with-database
+    (let [[{:keys [max]}] (j/query *db-conn* ["select max(id) from links"])]
+      (j/query *db-conn* [(str "select setval('links_id_seq', " max ")")]))))
 
 (defn timestamp [date]
-    (c/to-timestamp (f/parse (f/formatter "yyyy-MM-dd HH:mm:ss") date)))
+  (c/to-timestamp (f/parse (f/formatter "yyyy-MM-dd HH:mm:ss") date)))
 
 (def int->bool {"0" false "1" true "\\N" false})
 
