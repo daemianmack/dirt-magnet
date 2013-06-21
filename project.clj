@@ -21,7 +21,7 @@
                  [org.slf4j/jcl-over-slf4j "1.7.2"]
                  [org.slf4j/log4j-over-slf4j "1.7.2"]
                  [org.clojure/java.jdbc "0.3.0-alpha3"]
-                 [postgresql "9.1-901.jdbc4"]
+                 [org.postgresql/postgresql "9.2-1003-jdbc4"]
                  [enlive "1.1.1"]
                  [clj-http "0.7.2"]
                  [bond "0.2.5"]]
