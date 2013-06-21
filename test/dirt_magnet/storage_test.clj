@@ -11,5 +11,12 @@
     (is (= (:subname db-map) "//localhost:5432/magnet"))))
 
 (deftest ^:database test-with-database
+  (reset! *db-cache* nil)
+  (with-database
+    (is (j/query *db-conn* ["SELECT 1=1"]))))
+
+(deftest ^:database test-reestablish-connection
+  (cache-conn)
+  (.close (:connection @*db-cache*))
   (with-database
     (is (j/query *db-conn* ["SELECT 1=1"]))))

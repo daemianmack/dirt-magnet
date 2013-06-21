@@ -51,9 +51,12 @@
   the world's dumbest connection caching, consider using c3p0 someday
   or something like that."
   [& body]
-  ;; TODO: detect when the cache is not nil but dead (try/catch?) and
-  ;; retry with a new connection
-  `(binding [*db-conn* (or @*db-cache* (cache-conn))]
+  ;; TODO: configure the .isValid timeout?
+  `(binding [*db-conn* (if (and @*db-cache*
+                                (not (.isClosed (:connection @*db-cache*)))
+                                (.isValid (:connection @*db-cache*) 1000))
+                         @*db-cache*
+                         (cache-conn))]
      ~@body))
 
 (def db-schema [:links
