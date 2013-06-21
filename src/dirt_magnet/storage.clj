@@ -102,3 +102,6 @@
 (defn query [q]
   (with-database
     (j/query *db-conn* [q])))
+
+(defn -main [& args]
+  (apply-schema))
