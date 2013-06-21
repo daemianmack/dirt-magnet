@@ -2,3 +2,4 @@ target/
 tmp/
 logs/
 /.env
+.lein-failures

@@ -1,3 +1,0 @@
-(defn devs
-  []
-  (require 'dev))
