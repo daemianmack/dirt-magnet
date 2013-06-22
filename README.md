@@ -1,4 +1,5 @@
-# What's this?
+[![Build Status](https://travis-ci.org/daemianmack/dirt-magnet.png?branch=master)](https://travis-ci.org/daemianmack/dirt-magnet)
+# What's this? 
 
 An app that accepts POSTs of interesting URLs, fetches their titles if
 possible, and displays them with attribution in a realtime stream
@@ -22,7 +23,6 @@ The primordial use case for this app was to accept POSTs from an IRC bot
 capturing URLs out of IRC channels, but it will accept any well-formed POST and
 tries not to enforce any data constraints apart from a simple schema.
 
-[![Build Status](https://travis-ci.org/daemianmack/dirt-magnet.png?branch=master)](https://travis-ci.org/daemianmack/dirt-magnet)
 
 # Setup
 
