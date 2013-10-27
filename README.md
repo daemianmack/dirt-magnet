@@ -334,3 +334,7 @@ Then perform the restore against the remote Heroku database...
 # Testing
 
 `lein test`
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/daemianmack/dirt-magnet/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
